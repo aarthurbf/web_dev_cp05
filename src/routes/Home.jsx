@@ -74,7 +74,7 @@ const Home = () => {
   return (
     <HomeStyle>
       {/* BANNER */}
-      <section className="banner">
+      <section className="banner" id="inicio">
         <h2>Venha conhecer os nossos produtos</h2>
         <h3>Saúde e Sabor em Cada Mordida</h3>
         <a href="" className="btn">
@@ -131,7 +131,7 @@ const Home = () => {
 
       {/* PRODUTOS */}
       <section>
-        <h1 className="produtos-title">Produtos</h1>
+        <h1 className="produtos-title" id="produtos">Produtos</h1>
         <div className="search-bar">
           <input
             type="text"
@@ -201,7 +201,7 @@ const Home = () => {
 
       {/* FORMULARIO */}
       <section>
-        <div className="selection-form">
+        <div className="selection-form" id="contato">
           <form className="form">
             <h2>Contate-nos</h2>
             <p type="Nome">

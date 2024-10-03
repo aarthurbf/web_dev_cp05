@@ -5,8 +5,15 @@ export const NavStyle = styled.nav`
     background: var(--color3);
     height: 80px;
     width: 100%;
-    position: relative;
+    position: fixed; /* Torna o menu fixo */
+    top: 0;
+    left: 0;
     z-index: 1000;
+    transition: background-color 0.3s, opacity 0.3s;
+
+    /* Ajusta a opacidade com base no scroll */
+    background-color: ${(props) => (props.scrollY > 50 ? "#02732A" : "transparent")};
+    opacity: ${(props) => (props.scrollY > 50 ? "1" : "0.8")};
   }
 
   label.logo {
