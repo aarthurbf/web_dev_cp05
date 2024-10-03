@@ -41,6 +41,7 @@ export const NavStyle = styled.nav`
     padding: 7px 13px;
     border-radius: 3px;
     text-transform: uppercase;
+    cursor: pointer;
   }
 
   a.active,
