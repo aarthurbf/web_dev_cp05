@@ -2,10 +2,11 @@ import styled from "styled-components";
 import Banner from "../assets/img/banner.jpg";
 
 export const HomeStyle = styled.section`
-  /* Banner */
+  /* Estilos Globais */
   .banner {
     background: url(${Banner});
     background-size: cover;
+    min-width: 99vw;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -101,12 +102,12 @@ export const HomeStyle = styled.section`
   }
 
   /* Produtos */
-  .produtos-title{
+  .produtos-title {
     margin-top: 2rem;
     margin-bottom: 0;
     text-align: center;
     font-size: 2rem;
-    color: var(--color1)
+    color: var(--color1);
   }
 
   .btn {
@@ -143,13 +144,6 @@ export const HomeStyle = styled.section`
   .search-bar input:focus {
     border-color: var(--color2);
     box-shadow: 0px 0px 10px var(--color2);
-  }
-
-  .produto-title {
-    font-size: 2rem;
-    text-align: center;
-    margin: 2.5rem 0 1rem;
-    color: var(--color2);
   }
 
   .produto-list {
@@ -197,88 +191,6 @@ export const HomeStyle = styled.section`
   .preco {
     padding-top: 30px;
     font-size: 1.1rem;
-  }
-
-  .vejaMais {
-    display: flex;
-    justify-content: center;
-  }
-
-  .produto-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 500px;
-    background-color: var(--color7);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    text-align: center;
-  }
-
-  .produto-form input,
-  .produto-form textarea {
-    padding: 12px;
-    border: 2px solid var(--color3);
-    border-radius: 5px;
-    font-size: 1rem;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .produto-form textarea {
-    resize: none;
-    height: 100px;
-  }
-
-  .produto-form button {
-    padding: 12px 20px;
-    background-color: var(--color2);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-  }
-
-  .produto-form button:hover {
-    background-color: var(--color3);
-  }
-
-  /* Responsividade */
-  @media screen and (max-width: 1024px) {
-    .produto-list {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    .produto-list {
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    .produto-item {
-      width: 25rem;
-    }
-
-    .produto-form {
-      max-width: 100%;
-      padding: 15px;
-    }
-  }
-
-  @media screen and (max-width: 480px) {
-    .produto-list {
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    .produto-item {
-      width: 100%;
-      margin: 3rem auto;
-      padding: 1.5rem;
-    }
   }
 
   /* AVALIAÇÕES */
@@ -347,133 +259,8 @@ export const HomeStyle = styled.section`
     height: 1.8rem;
   }
 
-  // Responsividade
-  @media (max-width: 1024px) {
-    .slideshow-container {
-      height: 80vh;
-    }
-
-    .produto-list {
-      grid-template-columns: repeat(1, 1fr);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .slideshow-container {
-      height: 70vh;
-    }
-
-    .prev,
-    .next {
-      font-size: 1.5rem;
-      padding: 0.4rem;
-    }
-
-    .produto-list {
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    .produto-item {
-      width: 25rem;
-    }
-
-    .banner h2 {
-      font-size: 2rem;
-    }
-
-    .banner h3 {
-      font-size: 1rem;
-    }
-
-    .banner .btn {
-      padding: 0.5rem 1rem;
-    }
-
-    .informacoes {
-      padding: 3rem 1rem;
-    }
-
-    .informacoes .item {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .informacoes .item li {
-      margin-bottom: 2rem;
-    }
-
-    .informacoes hr {
-      width: 100%;
-    }
-
-    .col {
-      flex: 100%;
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .col {
-      flex: 100%;
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .slideshow-container {
-      height: 60vh;
-    }
-
-    .prev,
-    .next {
-      font-size: 1.2rem;
-      padding: 0.3rem;
-    }
-
-    .produto-list {
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    .produto-item {
-      width: 100%;
-      margin: 3rem auto;
-      padding: 1.5rem;
-    }
-
-    .banner h2 {
-      font-size: 1.5rem;
-    }
-
-    .banner h3 {
-      font-size: 0.875rem;
-    }
-
-    .banner .btn {
-      font-size: 0.875rem;
-      padding: 0.5rem 1rem;
-    }
-
-    .informacoes h3 {
-      font-size: 1.5rem;
-    }
-
-    .informacoes p {
-      font-size: 1rem;
-    }
-
-    .informacoes .item {
-      flex-direction: column;
-    }
-  }
-
-  @media (max-width: 320px) {
-    .slideshow-container {
-      height: 50vh;
-    }
-  }
-
-  /* FORMULARIO */
-  .selection-form {
+   /* FORMULARIO */
+   .selection-form {
     display: flex;
     justify-content: center;
     padding: 2rem 0;
@@ -527,5 +314,82 @@ export const HomeStyle = styled.section`
 
   .form button:hover {
     background: var(--color3);
+  }
+
+  /* Responsividade */
+  @media (max-width: 1024px) {
+    .produto-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .produto-item {
+      width: 25rem;
+    }
+
+    .informacoes .item {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .informacoes hr {
+      width: 100%;
+    }
+
+    .col {
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .produto-list {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .produto-item {
+      width: 20rem;
+    }
+
+    .banner h2 {
+      font-size: 2rem;
+    }
+
+    .banner h3 {
+      font-size: 1rem;
+    }
+
+    .banner .btn {
+      padding: 0.5rem 1rem;
+    }
+
+    .informacoes {
+      padding: 3rem 1rem;
+    }
+
+    .col {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .produto-item {
+      width: 100%;
+      margin: 3rem auto;
+      padding: 1.5rem;
+    }
+
+    .banner h2 {
+      font-size: 1.5rem;
+    }
+
+    .banner h3 {
+      font-size: 0.875rem;
+    }
+
+    .banner .btn {
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+    }
   }
 `;
