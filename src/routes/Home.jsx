@@ -1,85 +1,41 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HomeStyle } from "../css/HomeStyle";
 import { FaMoneyBill, FaBox, FaBuilding } from "react-icons/fa";
-import Produto from "../assets/img/produto.png";
 import Estrela from "../assets/img/estrela-icon.png";
 import FaceOne from "../assets/img/face1.jpg";
 import FaceTwo from "../assets/img/face2.jpg";
 import FaceThree from "../assets/img/face3.jpg";
-
-const produtosIniciais = [
-  {
-    id: 1,
-    nome: "Energia Verde",
-    descricao:
-      "Uma combinação revitalizante de quinoa, espinafre, brócolis e abacate, temperada com um toque de limão e azeite de oliva.",
-    preco: "R$ 25,00",
-    imagem: Produto,
-  },
-  {
-    id: 2,
-    nome: "Proteína Power",
-    descricao:
-      "Peito de frango grelhado com batata-doce assada, brócolis e uma pitada de ervas finas para um boost de energia e saciedade.",
-    preco: "R$ 28,00",
-    imagem: Produto,
-  },
-  {
-    id: 3,
-    nome: "Delícia Mediterrânea",
-    descricao:
-      "Salada de grão-de-bico com tomate-cereja, pepino, azeitonas e queijo feta, acompanhada de um molho de iogurte grego.",
-    preco: "R$ 27,00",
-    imagem: Produto,
-  },
-  {
-    id: 4,
-    nome: "Veggie Vitalidade",
-    descricao:
-      "Um mix colorido de legumes grelhados, incluindo abobrinha, pimentão, berinjela e cenoura, servido com arroz integral.",
-    preco: "R$ 24,00",
-    imagem: Produto,
-  },
-  {
-    id: 5,
-    nome: "Sabor Oriental",
-    descricao:
-      "Tofu marinado em molho teriyaki, acompanhado de arroz de couve-flor e vegetais salteados, como cenoura e brócolis.",
-    preco: "R$ 26,00",
-    imagem: Produto,
-  },
-  {
-    id: 6,
-    nome: "Fit & Fresh",
-    descricao:
-      "Salada de quinoa com frango desfiado, manga, rúcula e um toque de hortelã, perfeita para uma refeição leve e refrescante.",
-    preco: "R$ 26,00",
-    imagem: Produto,
-  },
-];
+import ProdutoImg from "../assets/img/produto.png";
 
 const Home = () => {
-  // CONTROLA AS INFORMAÇÕES DO JSON
-  const [produtos, setProdutos] = useState(produtosIniciais);
+  const [produtos, setProdutos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [nome, setNome] = useState("");
-  const [descricao, setDescricao] = useState("");
-  const [preco, setPreco] = useState("");
 
-  // FILTRAR PRODUTOS
+  useEffect(() => {
+    fetch("/src/data/data.json")
+      .then((response) => response.json())
+      .then((data) => {
+        const updatedData = data.map((produto) => ({
+          ...produto,
+          imagem: ProdutoImg
+        }));
+        setProdutos(updatedData);
+      })
+      .catch((error) => console.error("Erro ao carregar os produtos:", error));
+  }, []);
+
   const filteredProducts = produtos.filter((produto) =>
     produto.nome.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
   return (
     <HomeStyle>
       {/* BANNER */}
       <section className="banner" id="inicio">
         <h2>Venha conhecer os nossos produtos</h2>
         <h3>Saúde e Sabor em Cada Mordida</h3>
-        <a href="" className="btn">
-          Conheça agora
-        </a>
+        <a href="" className="btn">Conheça agora</a>
       </section>
 
       {/* SERVIÇOS */}
@@ -121,7 +77,7 @@ const Home = () => {
             </span>
             <h4>Variedade</h4>
             <p>
-              Possuimos uma ampla variedade de restaurantes parceiros
+              Possuímos uma ampla variedade de restaurantes parceiros
               especializados em culinária saudável, oferecendo opções
               vegetarianas, veganas e ricas em proteínas.
             </p>
@@ -141,17 +97,19 @@ const Home = () => {
           />
         </div>
         <div className="produto-list">
-          {filteredProducts.map((produto) => (
-            <div key={produto.id} className="produto-item">
-              <img src={produto.imagem} alt={produto.nome} />
-              <h3>{produto.nome}</h3>
-              <p>{produto.descricao}</p>
-              <a href="#" className="btn">
-                Comprar
-              </a>
-              <p className="preco">{produto.preco}</p>
-            </div>
-          ))}
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((produto) => (
+              <div key={produto.id} className="produto-item">
+                <img src={produto.imagem} alt={produto.nome} />
+                <h3>{produto.nome}</h3>
+                <p>{produto.descricao}</p>
+                <a href="#" className="btn">Comprar</a>
+                <p className="preco">{produto.preco}</p>
+              </div>
+            ))
+          ) : (
+            <p>Nenhum produto encontrado</p>
+          )}
         </div>
       </section>
 
@@ -177,7 +135,7 @@ const Home = () => {
                 img: FaceThree,
                 name: "Pedro",
                 testimonial:
-                  " “Como atleta, preciso de refeições que me forneçam energia e nutrientes essenciais. As marmitas da GourmetON são perfeitas para isso. Além de deliciosas, são preparadas com ingredientes frescos e de alta qualidade.”",
+                  "“Como atleta, preciso de refeições que me forneçam energia e nutrientes essenciais. As marmitas da GourmetON são perfeitas para isso. Além de deliciosas, são preparadas com ingredientes frescos e de alta qualidade.”",
               },
             ].map((testimonial, index) => (
               <div className="col" key={index}>
@@ -199,7 +157,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* FORMULARIO */}
+      {/* FORMULÁRIO */}
       <section>
         <div className="selection-form" id="contato">
           <form className="form">

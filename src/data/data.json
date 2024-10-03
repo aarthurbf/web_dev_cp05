@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "nome": "Energia Verde",
+    "descricao": "Uma combinação revitalizante de quinoa, espinafre, brócolis e abacate, temperada com um toque de limão e azeite de oliva.",
+    "preco": "R$ 25,00",
+    "imagem": "Produto"
+  },
+  {
+    "id": 2,
+    "nome": "Proteína Power",
+    "descricao": "Peito de frango grelhado com batata-doce assada, brócolis e uma pitada de ervas finas para um boost de energia e saciedade.",
+    "preco": "R$ 28,00",
+    "imagem": "Produto"
+  },
+  {
+    "id": 3,
+    "nome": "Delícia Mediterrânea",
+    "descricao": "Salada de grão-de-bico com tomate-cereja, pepino, azeitonas e queijo feta, acompanhada de um molho de iogurte grego.",
+    "preco": "R$ 27,00",
+    "imagem": "Produto"
+  },
+  {
+    "id": 4,
+    "nome": "Veggie Vitalidade",
+    "descricao": "Um mix colorido de legumes grelhados, incluindo abobrinha, pimentão, berinjela e cenoura, servido com arroz integral.",
+    "preco": "R$ 24,00",
+    "imagem": "Produto"
+  },
+  {
+    "id": 5,
+    "nome": "Sabor Oriental",
+    "descricao": "Tofu marinado em molho teriyaki, acompanhado de arroz de couve-flor e vegetais salteados, como cenoura e brócolis.",
+    "preco": "R$ 26,00",
+    "imagem": "Produto"
+  },
+  {
+    "id": 6,
+    "nome": "Fit & Fresh",
+    "descricao": "Salada de quinoa com frango desfiado, manga, rúcula e um toque de hortelã, perfeita para uma refeição leve e refrescante.",
+    "preco": "R$ 26,00",
+    "imagem": "Produto"
+  }
+]
