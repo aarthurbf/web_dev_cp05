@@ -2,16 +2,14 @@ import styled from "styled-components";
 
 export const NavStyle = styled.nav`
   nav {
-    background: var(--color3);
+    background-color: var(--color1);
     height: 80px;
     width: 100%;
-    position: fixed; /* Torna o menu fixo */
+    position: fixed; 
     top: 0;
     left: 0;
     z-index: 1000;
     transition: background-color 0.3s, opacity 0.3s;
-
-    /* Ajusta a opacidade com base no scroll */
     background-color: ${(props) => (props.scrollY > 50 ? "#02732A" : "transparent")};
     opacity: ${(props) => (props.scrollY > 50 ? "1" : "0.8")};
   }
@@ -65,6 +63,10 @@ export const NavStyle = styled.nav`
   }
 
   @media (max-width: 1050px) {
+    nav{
+      background-color: var(--color1);
+    }
+
     label.logo {
       padding-left: 30px;
     }
